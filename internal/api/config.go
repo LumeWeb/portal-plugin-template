@@ -8,9 +8,13 @@ import (
 	"go.lumeweb.com/portal/core"
 )
 
-// Config returns the plugin's configuration structure
-func (a *API) Config() config.APIConfig {
+// GetConfig returns the plugin's configuration structure
+func (a *API) GetConfig() config.APIConfig {
 	return &pluginConfig.APIConfig{}
+}
+
+func (a *API) ID() string {
+	return a.Name()
 }
 
 // Name returns the plugin's name identifier

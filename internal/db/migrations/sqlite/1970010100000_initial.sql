@@ -1,3 +1,4 @@
+-- +goose Up
 -- Initial database schema for the template plugin
 -- This migration establishes the base schema for storing items
 --
@@ -11,11 +12,15 @@
 --        creation, updates, and soft deletes
 -- SQLite version of the schema
 
-CREATE TABLE IF NOT EXISTS items (
-    id INTEGER PRIMARY KEY AUTOINCREMENT,          -- Unique identifier for each item
-    name TEXT NOT NULL,                           -- Required item name
-    description TEXT,                             -- Optional item description
-    created_at DATETIME DEFAULT CURRENT_TIMESTAMP, -- Creation timestamp
-    updated_at DATETIME DEFAULT CURRENT_TIMESTAMP, -- Last update timestamp
-    deleted_at DATETIME NULL                      -- Soft delete support
+CREATE TABLE IF NOT EXISTS `items`
+(
+    `id`         integer PRIMARY KEY AUTOINCREMENT,
+    `created_at` datetime,
+    `updated_at` datetime,
+    `deleted_at` datetime,
+    `name`       text    NOT NULL,
+    `description` text
 );
+
+-- +goose Down
+DROP TABLE IF EXISTS `items`;

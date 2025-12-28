@@ -3,11 +3,12 @@ package plugin
 
 import (
 	"go.lumeweb.com/portal-plugin-template/build"
+	pluginCore "go.lumeweb.com/portal-plugin-template/core"
 	"go.lumeweb.com/portal-plugin-template/internal"
 	"go.lumeweb.com/portal-plugin-template/internal/api"
-	"go.lumeweb.com/portal-plugin-template/internal/protocol"
 	"go.lumeweb.com/portal-plugin-template/internal/db/migrations"
 	"go.lumeweb.com/portal-plugin-template/internal/db/models"
+	"go.lumeweb.com/portal-plugin-template/internal/protocol"
 	"go.lumeweb.com/portal-plugin-template/internal/service"
 	"go.lumeweb.com/portal-plugin-template/internal/templates"
 	"go.lumeweb.com/portal/core"
@@ -36,7 +37,7 @@ func init() {
 		Services: func() ([]core.ServiceInfo, error) {
 			return []core.ServiceInfo{
 				{
-					ID:      service.ITEM_SERVICE,
+					ID:      pluginCore.ITEM_SERVICE,
 					Factory: service.NewItemService,
 				},
 			}, nil
