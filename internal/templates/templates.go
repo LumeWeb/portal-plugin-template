@@ -6,7 +6,7 @@ import (
 	"go.lumeweb.com/portal/service"
 )
 
-//go:embed templates/*
+//go:embed *.tpl
 var mailerTemplates embed.FS
 
 const (
